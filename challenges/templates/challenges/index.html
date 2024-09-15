@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block page_title %}
+    All Challenges
+{% endblock %}
+
+{% block content %}
+    <ul>
+        {% for mon in month %}
+            <li><a href="{% url "Month_ka_Challenge" mon %}">{{ mon|title }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+
+
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lala's Panel</title>
+    <style>
+        li {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        {% for mon in month %}
+            {% comment %} <li><a href="/challenge/{{ mon }}">{{ mon|title }}</a></li> {% endcomment %}
+            {% comment %} now if we want to do it dynamically and if we don't want to change the 
+            url everywhere we use in html below code in place of reverse function {% endcomment %}
+            {% comment %} <li><a href="{% url "Month_ka_Challenge" mon %}">{{ mon|title }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html> {% endcomment %} 

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block page_title %}
+    {{Month_text}} challenge
+{% endblock %}
+
+{% block content %}
+    <h1>{{Month_text}} Diet plan</h1>
+    {%if Text is not None %}
+        <h2>{{Text}}</h2>
+    {% else %}
+        <p>There is no Diet plan for this month</p>
+    {% endif %}
+{% endblock %}
+ 
+
+
+
+
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shashank's Panel</title>
+    <style>
+        h1 {
+            color: blue
+        }
+        h2{
+            color: red
+        }
+    </style>
+</head>
+<body>
+    {% comment %} now we want to handle if else in Django html templates {% endcomment %}
+    
+    {% comment %} <h1>{{Month_text}} Diet plan</h1>
+    <h2>{{Text}}</h2> {% endcomment %}
+    {% comment %} BY USING THIS CODE {% endcomment %}
+    {% comment %} <h1>{{Month_text}} Diet plan</h1>
+    {%if Text is not None %}
+        <h2>{{Text}}</h2>
+    {% else %}
+        <p>There is no Diet plan for this month</p>
+    {% endif %}
+    {% comment %} "{{}} double curly braces is django html special syntax used by jango for html dyanmic a""  {% endcomment %}
+{% comment %} </body>
+</html> {% endcomment %} 
