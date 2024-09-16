@@ -1,4 +1,4 @@
-from django.http import HttpResponse, HttpResponseNotFound,HttpResponseRedirect
+from django.http import Http404, HttpResponse, HttpResponseNotFound,HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from django.template.loader import render_to_string
@@ -124,11 +124,26 @@ def monthly_challenge_by_String(request, month):
         # returning_html = f"<h1>{mera_challenging}</h1>"# using some html here to design the code
         # return HttpResponse(returning_html)
         # We can also use adynamic way behalf of this both upper lines by using render function
+        # render function only use in successfull response not in error response 
+        # by using httpresponsenotfound not in httpresponse
         return render(request, "challenges/challenge.html", {
             "Text" : mera_challenging,
             "Month_text": month.capitalize()
             })
         # now if we want to get dict values instead of "Welcome in lala's Kingdom" 
         # we have to add one more parameter in return render of dict type which we will call in challenge.html file
-    except:  
-        return HttpResponseNotFound("<h1>NOT in MENU</h1>")
+    except: 
+         
+        #return HttpResponseNotFound("<h1>NOT in MENU</h1>")
+    # now we will create 404.html page instead of above code for getting other message
+    # by using render_to_string function just because we can use render function only in 
+    # case of successfull response
+
+        # returning_404 = render_to_string("404.html")
+        # return HttpResponseNotFound(returning_404)
+    
+    # we can also use a class which we can import hera and use instead of above code  
+    
+    
+            raise Http404()# it will dynamically give exact 404 error not found
+ 
